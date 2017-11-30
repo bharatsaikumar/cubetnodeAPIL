@@ -1,0 +1,19 @@
+{
+  "name": "cubettech",
+  "version": "0.0.1",
+  "description": "Node Api Calls",
+  "author": "Bharat",
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "config": "^1.19.0",
+    "errorhandler": "^1.4.3",
+    "express": "^4.13.4",
+    "git": "^0.1.5",
+    "mysql": "^2.10.2",
+    "nodemon": "^1.12.1",
+    "path": "^0.12.7",
+    "request": "^2.79.0",
+    "ua-parser-js": "^0.7.17"
+  }
+}
