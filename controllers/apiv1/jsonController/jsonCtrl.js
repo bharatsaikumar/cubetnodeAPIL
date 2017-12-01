@@ -20,7 +20,7 @@ exports.uploadJson_post = function (req, res) {
             jsonMdl.UploadJsonUsers(req.body, function (err, results) {
 
                 if (err) { console.log("err " + err); res.send({ "status": 400, "message": "error", "data": [] }); return; }
-                if (results) {
+                if (results.affectedRows>0) {
 
                     jsonMdl.UploadJsonProfile(req.body, function (err, results) {
                         if (err) { console.log("err " + err); res.send({ "status": 400, "message": "error", "data": [] }); return; }
