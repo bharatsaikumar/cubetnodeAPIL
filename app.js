@@ -22,6 +22,11 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.use('/apiv1', require('./routes/apiv1/apiRoutes'));
+app.get('/', function (req, res) {
+  res.send(" API Server Listening.");
+});
+
 app.use((req, res, next) => {
   req.setEncoding('utf8');
   req.rawBody = '';
@@ -39,19 +44,6 @@ app.use((req, res, next) => {
     next();
   });
 });
-
-app.use('/apiv1', require('./routes/apiv1/apiRoutes'));
-app.get('/', function (req, res) {
-  res.send(" API Server Listening.");
-});
-
-
-function logErrors(err, req, res, next) {
-  console.error(err.stack);
-  next(err);
-}
-
-
 
 var server = app.listen(4801, function () {
   var host = server.address().address;
