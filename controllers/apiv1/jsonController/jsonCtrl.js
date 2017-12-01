@@ -13,7 +13,7 @@ exports.uploadJson_post = function (req, res) {
     var trpData = req.body;
     for (i = 0; i < trpData.users.length; i++) {
         if ((trpData.users[i].email == undefined || trpData.users[i].email == null || trpData.users[i].email == '') || (trpData.users[i].profile.length < 3)) {
-            res.send({ "status": 400, "message": "Json Does not contains email or profile data", "data": results })
+            res.send({ "status": 400, "message": "Json Does not contains email or profile data" })
         }
         cnt = cnt + 1;
         if (cnt == trpData.users.length) {
