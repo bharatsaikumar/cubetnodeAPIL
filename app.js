@@ -22,11 +22,10 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use('/apiv1', require('./routes/apiv1/apiRoutes'));
 app.get('/', function (req, res) {
   res.send(" API Server Listening.");
 });
-
+app.use('/apiv1', require('./routes/apiv1/apiRoutes'));
 app.use((req, res, next) => {
   req.setEncoding('utf8');
   req.rawBody = '';
@@ -39,6 +38,9 @@ app.use((req, res, next) => {
   if (req.headers["content-type"].indexOf("application/json") >= 0) {
     req.rawBody = req.body;
     next();
+  }
+  else{
+    res.send({"status":400,"message":"its not a JSON Data"});return;
   }
   req.on('end', function () {
     next();
